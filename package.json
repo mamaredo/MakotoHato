@@ -7,6 +7,10 @@
   "author": "makotty<makotty.mako@gmail.com>",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "lint": "eslint 'src/**/*.{ts,tsx}' gatsby-*.ts && tsc --noEmit",
+    "lint:fix": "eslint --fix 'src/**/*.{ts,tsx}' gatsby-*.ts && tsc --noEmit"
+  },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.3.1",
     "@typescript-eslint/parser": "^5.3.1",
