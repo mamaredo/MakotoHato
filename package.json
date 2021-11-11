@@ -1,13 +1,10 @@
 {
   "name": "makohato.com",
   "version": "1.0.0",
-  "description": "プログラミング初心者Makoのポートフォリオブログサイトです。",
+  "description": "プログラミング初心者Makoのポートフォリオ＆ブログサイトです。",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "Makotty<makotty.mako@gmail.com>",
-  "license": "ISC",
+  "repository": "https://github.com/MakoHato/MakotoHato.git",
+  "author": "makotty<makotty.mako@gmail.com>",
+  "license": "MIT",
   "private": true
 }
