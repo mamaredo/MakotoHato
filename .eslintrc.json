@@ -38,9 +38,22 @@
     "prettier/prettier": [
       "error",
       {
+        "printWidth": 80,
+        "tabWidth": 2,
+        "useTabs": false,
+        "semi": false,
         "singleQuote": true,
+        "quoteProps": "as-needed",
+        "jsxSingleQuote": false,
         "trailingComma": "none",
-        "arrowParens": "avoid"
+        "bracketSpacing": true,
+        "bracketSameLine": false,
+        "arrowParens": "avoid",
+        "requirePragma": false,
+        "insertPragma": false,
+        "proseWrap": "preserve",
+        "endOfLine": "lf",
+        "embeddedLanguageFormatting": "auto"
       }
     ]
   },

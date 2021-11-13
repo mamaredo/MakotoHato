@@ -1,4 +1,7 @@
-import type { GatsbyConfig } from "gatsby";
+import type { GatsbyConfig } from 'gatsby'
 
-const config: GatsbyConfig = {};
-export default config;
+const Config: GatsbyConfig = {
+  plugins: ['gatsby-plugin-sass']
+}
+
+export default Config
