@@ -3,7 +3,7 @@ import type { FC } from 'react'
 import { Link } from 'gatsby'
 
 // SCSS
-import '../assets/styles/Layout/l-Footer.scss'
+import '../assets/styles/Layout/_Footer.scss'
 
 export const Footer: FC = () => (
   <footer>
