@@ -9,7 +9,7 @@
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
-    "prettier/@typescript-eslint"
+    "prettier"
   ],
   "plugins": [
     "import",
@@ -60,6 +60,12 @@
   "settings": {
     "react": {
       "version": "detect"
+    },
+    // 「.ts」と「.tsx」と「.d.ts」を認識させる。
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".d.ts"]
+      }
     }
   }
 }
