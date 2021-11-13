@@ -1,0 +1,16 @@
+footer {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: lavender;
+  display: flex;
+  justify-content: space-between;
+
+  ul {
+    display: flex;
+    list-style-type: none;
+  }
+
+  li:not(:first-child) {
+    margin-left: 1rem;
+  }
+}
