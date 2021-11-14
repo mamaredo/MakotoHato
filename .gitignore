@@ -1,6 +1,9 @@
-# npm
+# yarn
 node_modules/
 
 # GatsbyJS
 .cache/
 public/
+
+# gatsby-plugin-graphql-codegen
+types/graphql-types.d.ts

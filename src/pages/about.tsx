@@ -1,15 +1,36 @@
 import React from 'react'
 import type { FC } from 'react'
-import { Link } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 
-// Component
+// Components
 import { Layout } from '../components/Layout'
 
-const About: FC = () => (
-  <Layout>
-    <h1>About</h1>
-    <p>GatsbyJSでできたブログやよ〜</p>
-    <Link to="/">Home</Link>
-  </Layout>
-)
+// Types
+import type { AboutPageQuery } from '../../types/graphql-types'
+
+interface PageProps {
+  data: AboutPageQuery
+}
+
+const About: FC<PageProps> = ({ data }) => {
+  return (
+    <Layout>
+      <h1>About {data.site?.siteMetadata?.title ?? '(無題)'}</h1>
+      <p>GatsbyJSでできたブログやよ〜</p>
+      <Link to="/">Home</Link>
+    </Layout>
+  )
+}
+
 export default About
+
+// Query
+export const query = graphql`
+  query AboutPage {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`
