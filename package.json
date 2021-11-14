@@ -9,6 +9,7 @@
   "private": true,
   "scripts": {
     "develop": "ts-node ./node_modules/.bin/gatsby develop",
+    "build": "ts-node ./node_modules/.bin/gatsby build",
     "lint": "eslint 'src/**/*.{ts,tsx}' gatsby-*.ts && tsc --noEmit",
     "lint:fix": "eslint --fix 'src/**/*.{ts,tsx}' gatsby-*.ts && tsc --noEmit",
     "stylelint": "stylelint 'src/**/*.scss'",
