@@ -1,6 +1,6 @@
 import { graphql, useStaticQuery } from 'gatsby'
 
-import { FooterComponentQuery } from '../../../types/graphql-types'
+import type { FooterComponentQuery } from '../../../types/graphql-types'
 
 export const UseFooterComponentQuery = () => {
   const data = useStaticQuery<FooterComponentQuery>(graphql`
