@@ -2,7 +2,7 @@ import type { GatsbyConfig } from 'gatsby'
 
 const Config: GatsbyConfig = {
   siteMetadata: {
-    title: 'Makoと、はと。',
+    title: 'まこと、はと。',
     author: 'Makotty',
     description: 'プログラム初心者Makoのブログ兼ポートフォリオサイトです。',
     email: 'hal.m.90215@gmail.com'
