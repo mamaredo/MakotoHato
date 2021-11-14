@@ -9,11 +9,14 @@ import { Layout } from '../components/Layout'
 import '../assets/styles/Foundation/_base.scss'
 import '../assets/styles/index.scss'
 
-const Home: FC = () => (
-  <Layout>
-    <h1>Home</h1>
-    <p>Hello, GatsbyJS!</p>
-    <Link to="/about">About this blog</Link>
-  </Layout>
-)
+const Home: FC = () => {
+  return (
+    <Layout>
+      <h1>Home</h1>
+      <p>Hello, GatsbyJS!</p>
+      <Link to="/about">About this blog</Link>
+    </Layout>
+  )
+}
+
 export default Home
