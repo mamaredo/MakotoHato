@@ -2,12 +2,17 @@ import type { GatsbyConfig } from 'gatsby'
 
 const Config: GatsbyConfig = {
   siteMetadata: {
-    title: 'Makoと、はと。',
-    author: 'Makotty',
-    description: 'プログラム初心者Makoのブログ兼ポートフォリオサイトです。',
+    title: `まこと、はと。`,
+    description: `プログラム初心者Makoのことを紹介する個人サイトです。`,
+    lang: `ja`,
+    siteUrl: `https://makohato.com`,
+    locate: `ja_JP`,
+    fbappid: `280963450158852`,
+    author: 'Mako',
     email: 'hal.m.90215@gmail.com'
   },
   plugins: [
+    'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     {
       resolve: 'gatsby-plugin-graphql-codegen',

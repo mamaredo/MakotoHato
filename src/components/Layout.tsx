@@ -1,7 +1,7 @@
 import React from 'react'
 import type { FC } from 'react'
 
-// Component
+// Components
 import { Header } from '../containers/Header'
 import { Footer } from '../containers/Footer'
 
