@@ -10,6 +10,8 @@
   "scripts": {
     "develop": "ts-node ./node_modules/.bin/gatsby develop",
     "build": "ts-node ./node_modules/.bin/gatsby build",
+    "serve": "ts-node ./node_modules/.bin/gatsby serve",
+    "clean": "ts-node ./node_modules/.bin/gatsby clean",
     "lint": "eslint 'src/**/*.{ts,tsx}' gatsby-*.ts && tsc --noEmit",
     "lint:fix": "eslint --fix 'src/**/*.{ts,tsx}' gatsby-*.ts && tsc --noEmit",
     "stylelint": "stylelint 'src/**/*.scss'",
