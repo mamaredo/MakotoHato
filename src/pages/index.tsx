@@ -12,7 +12,7 @@ import { Seo } from '../containers/Seo'
 import '../assets/styles/Foundation/_base.scss'
 import '../assets/styles/index.scss'
 
-const Home: FC = () => {
+const Index: FC = () => {
   return (
     <Layout>
       <Seo />
@@ -23,4 +23,4 @@ const Home: FC = () => {
   )
 }
 
-export default Home
+export default Index

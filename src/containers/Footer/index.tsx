@@ -6,10 +6,10 @@ import { Link } from 'gatsby'
 import '../../assets/styles/Layout/_Footer.scss'
 
 // Query
-import { UseFooterComponentQuery } from './query'
+import { UseFooterQuery } from './query'
 
 export const Footer: FC = () => {
-  const data = UseFooterComponentQuery()
+  const data = UseFooterQuery()
 
   return (
     <footer>
