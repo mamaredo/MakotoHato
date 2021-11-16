@@ -10,6 +10,7 @@ export const UseSeoQuery = () => {
           title
           lang
           description
+          siteUrl
         }
       }
     }

@@ -7,10 +7,15 @@ import { Layout } from '../components/Layout'
 // Containers
 import { Seo } from '../containers/Seo'
 
-const NotFound: FC = () => {
+// Types
+interface Props {
+  location: Location
+}
+
+const NotFound: FC<Props> = ({ location }) => {
   return (
     <Layout>
-      <Seo />
+      <Seo pagetitle="ページが見つかりません。" pagepath={location.pathname} />
       <h2>ページが見つかりません</h2>
     </Layout>
   )
