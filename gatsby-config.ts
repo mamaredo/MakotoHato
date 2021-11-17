@@ -15,7 +15,14 @@ const Config: GatsbyConfig = {
     email: `hal.m.90215@gmail.com`
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-graphql-codegen`,
+      options: {
+        fileName: `types/graphql-types.d.ts`,
+        documentPaths: [`src/**/*.{ts,tsx}`, `gatsby-*.ts`]
+      }
+    },
+    `gatsby-plugin-image`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -29,6 +36,10 @@ const Config: GatsbyConfig = {
       }
     },
     `gatsby-plugin-offline`,
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sass`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-source-contentful`,
       options: {
@@ -37,12 +48,11 @@ const Config: GatsbyConfig = {
         host: process.env.CONTENTFUL_HOST
       }
     },
-    `gatsby-plugin-sass`,
     {
-      resolve: `gatsby-plugin-graphql-codegen`,
+      resolve: `gatsby-source-filesystem`,
       options: {
-        fileName: `types/graphql-types.d.ts`,
-        documentPaths: [`src/**/*.{ts,tsx}`, `gatsby-*.ts`]
+        name: `images`,
+        path: `${__dirname}/src/assets/images/`
       }
     }
   ]
