@@ -13,6 +13,18 @@ const Config: GatsbyConfig = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: `まこと、はと。`,
+        short_name: `まこはと`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#477294`,
+        display: `standalone`,
+        icon: `src/assets/images/makohato_icon.png`
+      }
+    },
     'gatsby-plugin-sass',
     {
       resolve: 'gatsby-plugin-graphql-codegen',
