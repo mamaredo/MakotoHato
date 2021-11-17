@@ -6,7 +6,7 @@ const Config: GatsbyConfig = {
     description: `プログラム初心者Makoのことを紹介する個人サイトです。`,
     lang: `ja`,
     siteUrl: `https://makohato.com`,
-    locate: `ja_JP`,
+    locale: `ja_JP`,
     fbappid: `280963450158852`,
     author: 'Mako',
     email: 'hal.m.90215@gmail.com'
