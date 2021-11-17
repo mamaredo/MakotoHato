@@ -1,3 +1,6 @@
+import dotenv = require('dotenv')
+dotenv.config()
+
 import type { GatsbyConfig } from 'gatsby'
 
 const Config: GatsbyConfig = {
