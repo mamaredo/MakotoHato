@@ -17,9 +17,11 @@ export const Seo: FC<Props> = props => {
 
   const lang = data.site?.siteMetadata?.lang ?? 'ja'
 
-  const title = props.pagetitle
+  const title = data.site?.siteMetadata?.title ?? ''
+
+  const pagetitle = props.pagetitle
     ? `${props.pagetitle} | ${data.site?.siteMetadata?.title}`
-    : data.site?.siteMetadata?.title
+    : data.site?.siteMetadata?.title ?? ''
 
   const description =
     (props.pagedesc || data.site?.siteMetadata?.description) ?? ''
@@ -28,13 +30,25 @@ export const Seo: FC<Props> = props => {
     ? `${data.site?.siteMetadata?.siteUrl}${props.pagepath}`
     : data.site?.siteMetadata?.siteUrl ?? ''
 
+  const locale = data.site?.siteMetadata?.locale ?? ''
+
+  const fbappid = data.site?.siteMetadata?.fbappid ?? ''
+
   return (
     <Helmet>
       <html lang={lang} />
-      <title>{title}</title>
+      <title>{pagetitle}</title>
       <meta name="description" content={description} />
 
       <link rel="canonical" href={url} />
+
+      <meta property="og:site_name" content={title} />
+      <meta property="og:title" content={pagetitle} />
+      <meta property="og:description" content={description} />
+      <meta property="og:url" content={url} />
+      <meta property="og:type" content="website" />
+      <meta property="og:locale" content={locale} />
+      <meta property="fb:app_id" content={fbappid} />
     </Helmet>
   )
 }

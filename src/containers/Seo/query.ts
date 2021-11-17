@@ -11,6 +11,8 @@ export const UseSeoQuery = () => {
           lang
           description
           siteUrl
+          locale
+          fbappid
         }
       }
     }
