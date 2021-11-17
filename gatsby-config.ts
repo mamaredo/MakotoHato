@@ -8,13 +8,13 @@ const Config: GatsbyConfig = {
     siteUrl: `https://makohato.com`,
     locale: `ja_JP`,
     fbappid: `280963450158852`,
-    author: 'Mako',
-    email: 'hal.m.90215@gmail.com'
+    author: `Mako`,
+    email: `hal.m.90215@gmail.com`
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
+    `gatsby-plugin-react-helmet`,
     {
-      resolve: 'gatsby-plugin-manifest',
+      resolve: `gatsby-plugin-manifest`,
       options: {
         name: `まこと、はと。`,
         short_name: `まこはと`,
@@ -25,12 +25,21 @@ const Config: GatsbyConfig = {
         icon: `src/assets/images/makohato_icon.png`
       }
     },
-    'gatsby-plugin-sass',
+    `gatsby-plugin-offline`,
     {
-      resolve: 'gatsby-plugin-graphql-codegen',
+      resolve: `gatsby-source-contentful`,
       options: {
-        fileName: 'types/graphql-types.d.ts',
-        documentPaths: ['src/**/*.{ts,tsx}', 'gatsby-*.ts']
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        host: process.env.CONTENTFUL_HOST
+      }
+    },
+    `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-plugin-graphql-codegen`,
+      options: {
+        fileName: `types/graphql-types.d.ts`,
+        documentPaths: [`src/**/*.{ts,tsx}`, `gatsby-*.ts`]
       }
     }
   ]
