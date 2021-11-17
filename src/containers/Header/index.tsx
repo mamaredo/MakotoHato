@@ -6,10 +6,10 @@ import { Link } from 'gatsby'
 import '../../assets/styles/Layout/_Header.scss'
 
 // Query
-import { UseHeaderComponentQuery } from './query'
+import { UseHeaderQuery } from './query'
 
 export const Header: FC = () => {
-  const data = UseHeaderComponentQuery()
+  const data = UseHeaderQuery()
 
   return (
     <header>

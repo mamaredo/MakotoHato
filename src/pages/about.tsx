@@ -13,12 +13,17 @@ import type { AboutPageQuery } from '../../types/graphql-types'
 
 interface PageProps {
   data: AboutPageQuery
+  location: Location
 }
 
-const About: FC<PageProps> = ({ data }) => {
+const About: FC<PageProps> = ({ data, location }) => {
   return (
     <Layout>
-      <Seo />
+      <Seo
+        pagetitle="まこについて"
+        pagedesc="プログラム初心者まこについての紹介ページです。"
+        pagepath={location.pathname}
+      />
       <h1>About {data.site?.siteMetadata?.title ?? '(無題)'}</h1>
       <p>GatsbyJSでできたブログやよ〜</p>
       <Link to="/">Home</Link>

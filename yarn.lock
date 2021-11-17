@@ -1146,6 +1146,11 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@fontsource/klee-one@^4.5.2":
+  version "4.5.2"
+  resolved "https://registry.yarnpkg.com/@fontsource/klee-one/-/klee-one-4.5.2.tgz#d4193f4dd1339524b5827c0aa7b57989ea2cbd11"
+  integrity sha512-rllQ8KCibUcMWWInKKMcc9PjjWg6aam2VfX7n/SGDBM1ZQxMXXwpuzg7GaQy+7xLIfmHNLwPa5gQFqkqynCELQ==
+
 "@gatsbyjs/reach-router@^1.3.6":
   version "1.3.6"
   resolved "https://registry.yarnpkg.com/@gatsbyjs/reach-router/-/reach-router-1.3.6.tgz#4e8225836959be247890b66f21a3198a0589e34d"
