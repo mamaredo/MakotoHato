@@ -1,3 +1,6 @@
+import dotenv = require('dotenv')
+dotenv.config()
+
 import type { GatsbyConfig } from 'gatsby'
 
 const Config: GatsbyConfig = {
@@ -8,13 +11,20 @@ const Config: GatsbyConfig = {
     siteUrl: `https://makohato.com`,
     locale: `ja_JP`,
     fbappid: `280963450158852`,
-    author: 'Mako',
-    email: 'hal.m.90215@gmail.com'
+    author: `Mako`,
+    email: `hal.m.90215@gmail.com`
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
     {
-      resolve: 'gatsby-plugin-manifest',
+      resolve: `gatsby-plugin-graphql-codegen`,
+      options: {
+        fileName: `types/graphql-types.d.ts`,
+        documentPaths: [`src/**/*.{ts,tsx}`, `gatsby-*.ts`]
+      }
+    },
+    `gatsby-plugin-image`,
+    {
+      resolve: `gatsby-plugin-manifest`,
       options: {
         name: `まこと、はと。`,
         short_name: `まこはと`,
@@ -25,12 +35,24 @@ const Config: GatsbyConfig = {
         icon: `src/assets/images/makohato_icon.png`
       }
     },
-    'gatsby-plugin-sass',
+    `gatsby-plugin-offline`,
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sass`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
-      resolve: 'gatsby-plugin-graphql-codegen',
+      resolve: `gatsby-source-contentful`,
       options: {
-        fileName: 'types/graphql-types.d.ts',
-        documentPaths: ['src/**/*.{ts,tsx}', 'gatsby-*.ts']
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        host: process.env.CONTENTFUL_HOST
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/assets/images/`
       }
     }
   ]
