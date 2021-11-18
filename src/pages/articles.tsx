@@ -21,6 +21,11 @@ export const query = graphql`
       title
       createdArticleDateJP: createdArticleDate(formatString: "YYYY年MM月DD日")
       createdArticleDate
+      category {
+        category
+        categorySlug
+        id
+      }
     }
   }
 `
@@ -36,6 +41,15 @@ const Articles: FC<PageProps> = ({ data }) => {
       <time dateTime={data.contentfulArticles?.createdArticleDate}>
         {data.contentfulArticles?.createdArticleDateJP}
       </time>
+
+      {/* カテゴリーの出力 */}
+      <ul>
+        {data.contentfulArticles?.category?.map(category => (
+          <li className={category?.categorySlug} key={category?.id}>
+            {category?.category}
+          </li>
+        ))}
+      </ul>
     </Layout>
   )
 }
