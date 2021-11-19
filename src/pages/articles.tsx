@@ -2,11 +2,9 @@ import React from 'react'
 import type { FC } from 'react'
 import { graphql } from 'gatsby'
 
-// Components
-import { Layout } from '../components/Layout'
-
 // Containers
 import { Seo } from '../containers/Seo'
+import { Layout } from '../containers/Layout'
 
 // Types
 import type { ArticlesPageQuery } from '../../types/graphql-types'
@@ -45,7 +43,10 @@ const Articles: FC<PageProps> = ({ data }) => {
       {/* カテゴリーの出力 */}
       <ul>
         {data.contentfulArticles?.category?.map(category => (
-          <li className={category?.categorySlug} key={category?.id}>
+          <li
+            className={category?.categorySlug ?? undefined}
+            key={category?.id}
+          >
             {category?.category}
           </li>
         ))}

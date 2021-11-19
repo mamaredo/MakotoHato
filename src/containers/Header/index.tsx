@@ -1,9 +1,8 @@
 import React from 'react'
 import type { FC } from 'react'
-import { Link } from 'gatsby'
 
-// SCSS
-import '../../assets/styles/Layout/_Header.scss'
+// Component
+import { BaseHeader } from '../../components/BaseHeader'
 
 // Query
 import { UseHeaderQuery } from './query'
@@ -11,11 +10,7 @@ import { UseHeaderQuery } from './query'
 export const Header: FC = () => {
   const data = UseHeaderQuery()
 
-  return (
-    <header>
-      <h1>
-        <Link to="/">{data.site?.siteMetadata?.title ?? '(無題)'}</Link>
-      </h1>
-    </header>
-  )
+  const siteTitle = data.site?.siteMetadata?.title ?? undefined
+
+  return <BaseHeader siteTitle={siteTitle} />
 }

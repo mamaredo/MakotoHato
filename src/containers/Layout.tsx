@@ -1,9 +1,9 @@
 import React from 'react'
 import type { FC } from 'react'
 
-// Components
-import { Header } from '../containers/Header'
-import { Footer } from '../containers/Footer'
+// Containers
+import { Header } from './Header'
+import { Footer } from './Footer'
 
 export const Layout: FC = ({ children }) => (
   <div className="wrapper">
