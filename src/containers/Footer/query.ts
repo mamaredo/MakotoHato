@@ -7,8 +7,7 @@ export const UseFooterQuery = () => {
     query Footer {
       site {
         siteMetadata {
-          author
-          email
+          title
         }
       }
     }
