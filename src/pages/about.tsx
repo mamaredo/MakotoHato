@@ -2,16 +2,14 @@ import React from 'react'
 import type { FC } from 'react'
 import { graphql, Link } from 'gatsby'
 
-// Components
-import { Layout } from '../components/Layout'
-
 // Containers
 import { Seo } from '../containers/Seo'
+import { Layout } from '../containers/Layout'
 
 // Types
 import type { AboutPageQuery } from '../../types/graphql-types'
 
-interface PageProps {
+type PageProps = {
   data: AboutPageQuery
   location: Location
 }

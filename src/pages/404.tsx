@@ -1,18 +1,16 @@
 import React from 'react'
 import type { FC } from 'react'
 
-// Components
-import { Layout } from '../components/Layout'
-
 // Containers
 import { Seo } from '../containers/Seo'
+import { Layout } from '../containers/Layout'
 
 // Types
-interface Props {
+type PageProps = {
   location: Location
 }
 
-const NotFound: FC<Props> = ({ location }) => {
+const NotFound: FC<PageProps> = ({ location }) => {
   return (
     <Layout>
       <Seo pagetitle="ページが見つかりません。" pagepath={location.pathname} />
