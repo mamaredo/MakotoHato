@@ -6,15 +6,17 @@ import { Link } from 'gatsby'
 import { Seo } from '../containers/Seo'
 import { Layout } from '../containers/Layout'
 
-// Types
-import type { AboutPageQuery } from '../../types/graphql-types'
-
+// Type
 type PageProps = {
-  data: AboutPageQuery
   location: Location
 }
 
-const About: FC<PageProps> = ({ data, location }) => {
+// Query
+import { UseAboutPageQuery } from '../PageQuery/aboutQuery'
+
+const About: FC<PageProps> = ({ location }) => {
+  const data = UseAboutPageQuery()
+
   return (
     <Layout>
       <Seo
