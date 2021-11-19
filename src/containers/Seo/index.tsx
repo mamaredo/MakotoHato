@@ -15,24 +15,24 @@ interface Props {
 export const Seo: FC<Props> = props => {
   const data = UseSeoQuery()
 
-  const lang = data.site?.siteMetadata?.lang ?? 'ja'
+  const lang = data.site?.siteMetadata?.lang ?? undefined
 
-  const title = data.site?.siteMetadata?.title ?? ''
+  const title = data.site?.siteMetadata?.title ?? undefined
 
   const pagetitle = props.pagetitle
     ? `${props.pagetitle} | ${data.site?.siteMetadata?.title}`
-    : data.site?.siteMetadata?.title ?? ''
+    : data.site?.siteMetadata?.title ?? undefined
 
   const description =
-    (props.pagedesc || data.site?.siteMetadata?.description) ?? ''
+    (props.pagedesc || data.site?.siteMetadata?.description) ?? undefined
 
   const url = props.pagepath
     ? `${data.site?.siteMetadata?.siteUrl}${props.pagepath}`
-    : data.site?.siteMetadata?.siteUrl ?? ''
+    : data.site?.siteMetadata?.siteUrl ?? undefined
 
-  const locale = data.site?.siteMetadata?.locale ?? ''
+  const locale = data.site?.siteMetadata?.locale ?? undefined
 
-  const fbappid = data.site?.siteMetadata?.fbappid ?? ''
+  const fbappid = data.site?.siteMetadata?.fbappid ?? undefined
 
   return (
     <Helmet>
