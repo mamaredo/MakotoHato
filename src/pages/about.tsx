@@ -1,6 +1,6 @@
 import React from 'react'
 import type { FC } from 'react'
-import { graphql, Link } from 'gatsby'
+import { Link } from 'gatsby'
 
 // Containers
 import { Seo } from '../containers/Seo'
@@ -30,14 +30,3 @@ const About: FC<PageProps> = ({ data, location }) => {
 }
 
 export default About
-
-// Query
-export const query = graphql`
-  query AboutPage {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`
