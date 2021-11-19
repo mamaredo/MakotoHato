@@ -13,6 +13,19 @@ export const UseArticlesPageQuery = () => {
           categorySlug
           id
         }
+        eyecatch {
+          gatsbyImageData
+          description
+          file {
+            details {
+              image {
+                width
+                height
+              }
+            }
+            url
+          }
+        }
       }
     }
   `)
