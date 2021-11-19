@@ -1,6 +1,5 @@
 import React from 'react'
 import type { FC } from 'react'
-import { graphql } from 'gatsby'
 
 // Containers
 import { Seo } from '../containers/Seo'
@@ -8,25 +7,10 @@ import { Layout } from '../containers/Layout'
 
 // Types
 import type { ArticlesPageQuery } from '../../types/graphql-types'
-interface PageProps {
+
+type PageProps = {
   data: ArticlesPageQuery
 }
-
-// Query
-export const query = graphql`
-  query ArticlesPage {
-    contentfulArticles {
-      title
-      createdArticleDateJP: createdArticleDate(formatString: "YYYY年MM月DD日")
-      createdArticleDate
-      category {
-        category
-        categorySlug
-        id
-      }
-    }
-  }
-`
 
 const Articles: FC<PageProps> = ({ data }) => {
   return (
