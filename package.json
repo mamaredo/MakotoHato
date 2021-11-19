@@ -18,6 +18,7 @@
     "stylelint:fix": "stylelint --fix 'src/**/*.scss'"
   },
   "dependencies": {
+    "@contentful/rich-text-types": "^15.7.0",
     "@fontsource/klee-one": "^4.5.2",
     "dotenv": "^10.0.0",
     "gatsby": "^4.1.4",
