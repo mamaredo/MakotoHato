@@ -1,18 +1,19 @@
 import React from 'react'
 import type { FC } from 'react'
 
+// Gatsby
+import { GatsbyImage } from 'gatsby-plugin-image'
+
 // Containers
 import { Seo } from '../containers/Seo'
 import { Layout } from '../containers/Layout'
 
-// Types
-import type { ArticlesPageQuery } from '../../types/graphql-types'
+// Query
+import { UseArticlesPageQuery } from '../PageQuery/articlesQuery'
 
-type PageProps = {
-  data: ArticlesPageQuery
-}
+const Articles: FC = () => {
+  const data = UseArticlesPageQuery()
 
-const Articles: FC<PageProps> = ({ data }) => {
   return (
     <Layout>
       <Seo />
@@ -35,6 +36,11 @@ const Articles: FC<PageProps> = ({ data }) => {
           </li>
         ))}
       </ul>
+      {/* 画像の表示 */}
+      <GatsbyImage
+        image={data.contentfulArticles?.eyecatch?.gatsbyImageData}
+        alt={data.contentfulArticles?.eyecatch?.description ?? ''}
+      />
     </Layout>
   )
 }
