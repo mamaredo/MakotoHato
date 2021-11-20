@@ -1,56 +1,88 @@
 import React from 'react'
 import type { FC } from 'react'
-import { graphql } from 'gatsby'
+
+// Gatsby
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
+
+// Contentful
+import {
+  ContentfulRichTextGatsbyReference,
+  renderRichText,
+  RenderRichTextData
+} from 'gatsby-source-contentful/rich-text'
+import { BLOCKS } from '@contentful/rich-text-types'
+import { Options } from '@contentful/rich-text-react-renderer'
 
 // Containers
 import { Seo } from '../containers/Seo'
 import { Layout } from '../containers/Layout'
 
-// Types
-import type { ArticlesPageQuery } from '../../types/graphql-types'
-interface PageProps {
-  data: ArticlesPageQuery
-}
-
 // Query
-export const query = graphql`
-  query ArticlesPage {
-    contentfulArticles {
-      title
-      createdArticleDateJP: createdArticleDate(formatString: "YYYY年MM月DD日")
-      createdArticleDate
-      category {
-        category
-        categorySlug
-        id
-      }
-    }
-  }
-`
+import { UseArticlesPageQuery } from '../PageQuery/articlesQuery'
 
-const Articles: FC<PageProps> = ({ data }) => {
+const Articles: FC = () => {
+  const data = UseArticlesPageQuery()
+
+  const articleTitle = data.contentfulArticles?.title
+
+  const articleCreateDate = data.contentfulArticles?.createdArticleDate
+  const articleCreateDateJP = data.contentfulArticles?.createdArticleDateJP
+
+  const eyecatchImageData = data.contentfulArticles?.eyecatch
+    ?.gatsbyImageData as unknown as IGatsbyImageData
+
+  const eyecatchImageDescription =
+    data.contentfulArticles?.eyecatch?.description ?? ''
+
+  const articleContent = data.contentfulArticles
+    ?.article as unknown as RenderRichTextData<ContentfulRichTextGatsbyReference>
+
+  const options = {
+    renderNode: {
+      [BLOCKS.EMBEDDED_ASSET]: (node: {
+        data: {
+          target: {
+            gatsbyImageData: IGatsbyImageData
+            description: string
+            title: string
+          }
+        }
+      }) => (
+        <GatsbyImage
+          image={node.data.target.gatsbyImageData}
+          alt={
+            node.data.target.description
+              ? node.data.target.description
+              : node.data.target.title
+          }
+        />
+      )
+    }
+  } as unknown as Options
+
   return (
     <Layout>
       <Seo />
       {/* タイトルの出力 */}
-      <h1>{data.contentfulArticles?.title}</h1>
+      <h1>{articleTitle}</h1>
 
       {/* 記事作成日の出力 */}
-      <time dateTime={data.contentfulArticles?.createdArticleDate}>
-        {data.contentfulArticles?.createdArticleDateJP}
-      </time>
+      <time dateTime={articleCreateDate}>{articleCreateDateJP}</time>
 
       {/* カテゴリーの出力 */}
       <ul>
         {data.contentfulArticles?.category?.map(category => (
-          <li
-            className={category?.categorySlug ?? undefined}
-            key={category?.id}
-          >
+          <li className={category?.categorySlug} key={category?.id}>
             {category?.category}
           </li>
         ))}
       </ul>
+      {/* 画像の表示 */}
+
+      <GatsbyImage image={eyecatchImageData} alt={eyecatchImageDescription} />
+
+      {/* 記事のテキストを表示 */}
+      <div>{renderRichText(articleContent, options)}</div>
     </Layout>
   )
 }

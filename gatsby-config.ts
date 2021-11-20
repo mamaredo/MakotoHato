@@ -15,13 +15,7 @@ const Config: GatsbyConfig = {
     email: `hal.m.90215@gmail.com`
   },
   plugins: [
-    {
-      resolve: `gatsby-plugin-graphql-codegen`,
-      options: {
-        fileName: `types/graphql-types.d.ts`,
-        documentPaths: [`src/**/*.{ts,tsx}`, `gatsby-*.ts`]
-      }
-    },
+    `gatsby-plugin-typegen`,
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-plugin-manifest`,

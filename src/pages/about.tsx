@@ -1,20 +1,22 @@
 import React from 'react'
 import type { FC } from 'react'
-import { graphql, Link } from 'gatsby'
+import { Link } from 'gatsby'
 
 // Containers
 import { Seo } from '../containers/Seo'
 import { Layout } from '../containers/Layout'
 
-// Types
-import type { AboutPageQuery } from '../../types/graphql-types'
-
+// Type
 type PageProps = {
-  data: AboutPageQuery
   location: Location
 }
 
-const About: FC<PageProps> = ({ data, location }) => {
+// Query
+import { UseAboutPageQuery } from '../PageQuery/aboutQuery'
+
+const About: FC<PageProps> = ({ location }) => {
+  const data = UseAboutPageQuery()
+
   return (
     <Layout>
       <Seo
@@ -30,14 +32,3 @@ const About: FC<PageProps> = ({ data, location }) => {
 }
 
 export default About
-
-// Query
-export const query = graphql`
-  query AboutPage {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`

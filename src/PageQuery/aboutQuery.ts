@@ -1,8 +1,8 @@
 import { graphql, useStaticQuery } from 'gatsby'
 
-export const UseFooterQuery = () => {
-  const data = useStaticQuery<GatsbyTypes.FooterQuery>(graphql`
-    query Footer {
+export const UseAboutPageQuery = () => {
+  const data = useStaticQuery<GatsbyTypes.AboutPageQuery>(graphql`
+    query AboutPage {
       site {
         siteMetadata {
           title

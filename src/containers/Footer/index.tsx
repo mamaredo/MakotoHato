@@ -10,7 +10,7 @@ import { UseFooterQuery } from './query'
 export const Footer: FC = () => {
   const data = UseFooterQuery()
 
-  const siteTitle = data.site?.siteMetadata?.title ?? undefined
+  const siteTitle = data.site?.siteMetadata?.title
 
   return <BaseFooter siteTitle={siteTitle} />
 }
