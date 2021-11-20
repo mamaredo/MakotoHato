@@ -10,7 +10,7 @@ import { UseHeaderQuery } from './query'
 export const Header: FC = () => {
   const data = UseHeaderQuery()
 
-  const siteTitle = data.site?.siteMetadata?.title ?? undefined
+  const siteTitle = data.site?.siteMetadata?.title
 
   return <BaseHeader siteTitle={siteTitle} />
 }
