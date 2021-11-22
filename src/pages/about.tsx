@@ -12,7 +12,7 @@ type PageProps = {
 }
 
 // Query
-import { UseAboutPageQuery } from '../PageQuery/aboutQuery'
+import { UseAboutPageQuery } from '../query/PageQuery/AboutQuery'
 
 const About: FC<PageProps> = ({ location }) => {
   const data = UseAboutPageQuery()
