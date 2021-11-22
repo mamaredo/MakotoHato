@@ -18,7 +18,7 @@ import { Seo } from '../containers/Seo'
 import { Layout } from '../containers/Layout'
 
 // Query
-import { UseArticlesPageQuery } from '../PageQuery/articlesQuery'
+import { UseArticlesPageQuery } from '../query/templatesQuery/ArticlesQuery'
 
 const Articles: FC = () => {
   const data = UseArticlesPageQuery()
