@@ -1,6 +1,5 @@
 import React from 'react'
 import type { FC } from 'react'
-import { Link } from 'gatsby'
 
 // SCSS
 import '../assets/styles/Layout/_Footer.scss'
@@ -14,14 +13,6 @@ export const BaseFooter: FC<Props> = (props: Props) => {
   return (
     <footer>
       <p>&copy; 2021 {siteTitle} </p>
-      <ul>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-        <li>
-          <Link to="/contact">Contact</Link>
-        </li>
-      </ul>
     </footer>
   )
 }
