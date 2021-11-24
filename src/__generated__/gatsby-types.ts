@@ -4692,6 +4692,16 @@ type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 type PagesQueryQuery = { readonly allSiteFunction: { readonly nodes: ReadonlyArray<Pick<SiteFunction, 'functionRoute'>> }, readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
 
+type FooterQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type FooterQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
+
+type HeaderQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type HeaderQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
+
 type SeoQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -4701,6 +4711,32 @@ type AboutPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type AboutPageQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
+
+type ArticlesPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type ArticlesPageQuery = { readonly contentfulArticles: Maybe<(
+    Pick<ContentfulArticles, 'title' | 'createdArticleDate'>
+    & { createdArticleDateJP: ContentfulArticles['createdArticleDate'] }
+    & { readonly article: Maybe<(
+      Pick<ContentfulArticlesArticle, 'raw'>
+      & { readonly references: Maybe<ReadonlyArray<Maybe<(
+        { readonly __typename: 'ContentfulAsset' }
+        & Pick<ContentfulAsset, 'contentful_id' | 'gatsbyImageData' | 'title' | 'description'>
+      )>>> }
+    )>, readonly category: Maybe<ReadonlyArray<Maybe<Pick<ContentfulCategory, 'category' | 'categorySlug' | 'id'>>>>, readonly eyecatch: Maybe<(
+      Pick<ContentfulAsset, 'gatsbyImageData' | 'description'>
+      & { readonly file: Maybe<(
+        Pick<ContentfulAssetFile, 'url'>
+        & { readonly details: Maybe<{ readonly image: Maybe<Pick<ContentfulAssetFileDetailsImage, 'width' | 'height'>> }> }
+      )> }
+    )> }
+  )> };
+
+type ArticlesTemplateQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type ArticlesTemplateQuery = { readonly allContentfulArticles: { readonly edges: ReadonlyArray<{ readonly node: Pick<ContentfulArticles, 'id' | 'slug'> }> } };
 
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
@@ -4727,36 +4763,5 @@ type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = Pick<ImageSharpFluid, 't
 type GatsbyImageSharpFluid_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
 type GatsbyImageSharpFluid_withWebp_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
-
-type FooterQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type FooterQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
-
-type ArticlesPageQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type ArticlesPageQuery = { readonly contentfulArticles: Maybe<(
-    Pick<ContentfulArticles, 'title' | 'createdArticleDate'>
-    & { createdArticleDateJP: ContentfulArticles['createdArticleDate'] }
-    & { readonly article: Maybe<(
-      Pick<ContentfulArticlesArticle, 'raw'>
-      & { readonly references: Maybe<ReadonlyArray<Maybe<(
-        { readonly __typename: 'ContentfulAsset' }
-        & Pick<ContentfulAsset, 'contentful_id' | 'gatsbyImageData' | 'title' | 'description'>
-      )>>> }
-    )>, readonly category: Maybe<ReadonlyArray<Maybe<Pick<ContentfulCategory, 'category' | 'categorySlug' | 'id'>>>>, readonly eyecatch: Maybe<(
-      Pick<ContentfulAsset, 'gatsbyImageData' | 'description'>
-      & { readonly file: Maybe<(
-        Pick<ContentfulAssetFile, 'url'>
-        & { readonly details: Maybe<{ readonly image: Maybe<Pick<ContentfulAssetFileDetailsImage, 'width' | 'height'>> }> }
-      )> }
-    )> }
-  )> };
-
-type HeaderQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type HeaderQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
 
 }
