@@ -5,8 +5,5 @@ node_modules/
 .cache/
 public/
 
-# gatsby-plugin-graphql-codegen
-types/graphql-types.d.ts
-
 # ENV
 .env
