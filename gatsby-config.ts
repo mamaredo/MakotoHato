@@ -2,6 +2,7 @@ import dotenv = require('dotenv')
 dotenv.config()
 
 import type { GatsbyConfig } from 'gatsby'
+import './src/__generated__/gatsby-types'
 
 const Config: GatsbyConfig = {
   siteMetadata: {
